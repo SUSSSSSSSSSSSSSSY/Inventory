@@ -8,7 +8,7 @@
     {
         static void Main()
         {
-            string connectionString = "Server=DESKTOP-9PK656A\\SQLEXPRESS;Database=InventoryDB;Trusted_Connection=True;TrustServerCertificate=True"; // Замените на вашу строку подключения
+            string connectionString = "Server=DESKTOP-9PK656A\\SQLEXPRESS;Database=InventoryDB;Trusted_Connection=True;TrustServerCertificate=True";
             int newObjectId;
 
             AddOrUpdateInventory("Компьютер", 10, "В наличии", out newObjectId, connectionString);
@@ -24,23 +24,19 @@
                 {
                     command.CommandType = CommandType.StoredProcedure;
 
-                    // Параметры для процедуры
                     command.Parameters.AddWithValue("@ObjectName", objectName);
                     command.Parameters.AddWithValue("@ObjectQuantity", objectQuantity);
                     command.Parameters.AddWithValue("@ObjectStatus", objectStatus);
 
-                    // Параметр OUTPUT
                     SqlParameter outputIdParam = new SqlParameter("@ObjectID", SqlDbType.Int)
                     {
                         Direction = ParameterDirection.Output
                     };
                     command.Parameters.Add(outputIdParam);
 
-                    // Открытие подключения и выполнение команды
                     connection.Open();
                     command.ExecuteNonQuery();
-
-                    // Получение выходного значения
+                    
                     objectId = (int)outputIdParam.Value;
                 }
             }
