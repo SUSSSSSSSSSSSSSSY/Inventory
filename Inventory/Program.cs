@@ -13,7 +13,7 @@
 
             AddOrUpdateInventory("Компьютер", 10, "В наличии", out newObjectId, connectionString);
 
-            Console.WriteLine($"Новый/обновленный инвентарный объект имеет ID: {newObjectId}");
+            Console.WriteLine($"Новый/обновленный объект в инвентаре имеет ID: {newObjectId}");
         }
 
         static void AddOrUpdateInventory(string objectName, int objectQuantity, string objectStatus, out int objectId, string connectionString)
