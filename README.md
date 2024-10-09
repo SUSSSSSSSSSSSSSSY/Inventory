@@ -37,3 +37,6 @@ BEGIN
         SELECT @ObjectID = SCOPE_IDENTITY();
     END
 END;
+
+
+В результате выдаёт "Новый/обновленный объект в инвентаре имеет ID: 1"
