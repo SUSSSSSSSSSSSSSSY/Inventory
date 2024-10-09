@@ -1,4 +1,4 @@
-# Inventory
+# InventoryDB
 
 Запросы в Microsoft SQL Server Management studio выглядят так:
 
